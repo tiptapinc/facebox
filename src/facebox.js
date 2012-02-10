@@ -82,6 +82,7 @@
 
   $.extend($.facebox, {
     settings: {
+      showCloseImage : true,
       opacity      : 0.2,
       overlay      : true,
       loadingImage : '/facebox/loading.gif',
@@ -93,6 +94,13 @@
         <div class="content"> \
         </div> \
         <a href="#" class="close"></a> \
+      </div> \
+    </div>',
+      faceboxNoCloseHtml  : '\
+    <div id="facebox" style="display:none;"> \
+      <div class="popup"> \
+        <div class="content"> \
+        </div> \
       </div> \
     </div>'
     },
@@ -172,7 +180,11 @@
     $.facebox.settings.imageTypesRegexp = new RegExp('\\.(' + imageTypes + ')(\\?.*)?$', 'i')
 
     if (settings) $.extend($.facebox.settings, settings)
-    $('body').append($.facebox.settings.faceboxHtml)
+    if ($.facebox.settings.showCloseImage) {
+      $('body').append($.facebox.settings.faceboxHtml)
+    } else {
+      $('body').append($.facebox.settings.faceboxNoCloseHtml)
+    }
 
     var preload = [ new Image(), new Image() ]
     preload[0].src = $.facebox.settings.closeImage
