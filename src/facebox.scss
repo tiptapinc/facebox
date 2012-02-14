@@ -8,16 +8,19 @@
   left: 0;
   z-index: 100;
   text-align: left;
+  background: transparent;
 
   .popup {
     position: relative;
-    margin: 18px;
-    box-shadow: 0 0 18px rgba(0,0,0,0.4);
+    // margin: 18px;
+    // box-shadow: 0 0 18px rgba(0,0,0,0.4);
+    background: transparent;
   }
 
   .content {
     display:table;
-    background: #fff;
+    // background: #fff;
+    background: transparent;
   }
 
   .content > p:first-child {
@@ -71,6 +74,6 @@
 }
 
 .facebox_overlayBG {
-  background-color: #000;
+  background-color: black;
   z-index: 99;
 }
